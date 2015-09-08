@@ -4,6 +4,7 @@
 
 ### Server-Side
 ***DONE*** *- start 2:45pm, end 3:38pm except dotenv*
+
 ***DONE dotenv*** *- start 4:20pm, end 4:43pm*
 
 1. Create the project structure
