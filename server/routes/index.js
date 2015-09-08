@@ -53,31 +53,31 @@ router.delete('/hike/:id', function(req, res, next) {
   });
 });
 
-// *** added to db to test ***//
-var hike1 = new Hike({
-  Name: "Maroon Bells",
-  Location: "Aspen, CO",
-  Difficulty: "Beginner",
-  Duration: 2
-});
+// // *** added to db to test ***//
+// var hike1 = new Hike({
+//   Name: "Maroon Bells",
+//   Location: "Aspen, CO",
+//   Difficulty: "Beginner",
+//   Duration: 2
+// });
 
-var hike2 = new Hike({
-  Name: "Sky Pond",
-  Location: "Rocky Mountain National Park, Estes Park, CO",
-  Difficulty: "Advanced",
-  Duration: 5
-});
+// var hike2 = new Hike({
+//   Name: "Sky Pond",
+//   Location: "Rocky Mountain National Park, Estes Park, CO",
+//   Difficulty: "Advanced",
+//   Duration: 5
+// });
 
-//save hike in db
-hike1.save(function(err) {
-  if (err) throw err;
-  console.log('Hike saved successfully!');
-});
+// //save hike in db
+// hike1.save(function(err) {
+//   if (err) throw err;
+//   console.log('Hike saved successfully!');
+// });
 
-hike2.save(function(err) {
-  if (err) throw err;
-  console.log('Hike saved successfully!');
-});
+// hike2.save(function(err) {
+//   if (err) throw err;
+//   console.log('Hike saved successfully!');
+// });
 
 module.exports = router;
 

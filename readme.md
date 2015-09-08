@@ -3,7 +3,8 @@
 ***This repo contains my solution to the following assessment challenge:***
 
 ### Server-Side
-*DONE - start 2:45pm, end 3:38pm except dotenv*
+***DONE*** *- start 2:45pm, end 3:38pm except dotenv*
+***DONE dotenv*** *- start 4:20pm, end 4:43pm*
 
 1. Create the project structure
 1. Choose a resource (superheros, cats, dogs, etc.)
@@ -20,7 +21,7 @@
 ### Client-Side
 
 1. Render a single *index.html* file, which includes a form for adding (POST) a new superhero. Also, display ALL (GET) superheros below the form.
-1. Handle client-side form validation with HTML5 attributes.s
+1. Handle client-side form validation with HTML5 attributes.
 1. Handle the form submission with jQuery. This must be a SPA (single page application)
 
 ### Deployment

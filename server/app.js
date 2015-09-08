@@ -1,5 +1,7 @@
 //mongoose config//
 require('./database');
+//env config//
+require('dotenv').load();
 // *** main dependencies *** //
 var express = require('express');
 var path = require('path');

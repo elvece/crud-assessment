@@ -12,6 +12,6 @@ var Hike = new Schema(
 
 mongoose.model('hikes', Hike);
 
-mongoose.connect('mongodb://localhost/01-crud-assessment');
+mongoose.connect('mongodb://process.env.MONGO_URI');
 
 
