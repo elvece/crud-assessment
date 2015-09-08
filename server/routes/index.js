@@ -27,18 +27,31 @@ router.get('/hike/:id', function(req, res, next) {
 //post ALL hikes
 router.post('/hikes', function(req, res, next) {
   var newHike = new Hike(req.body);
-  newHike.save(function (err, hikes){
-    console.log(hikes);
+  newHike.save(function (err, hike){
+    console.log(hike);
     res.json({Message: "Hike was saved to database successfully!"});
   });
 });
 
-
 //update SINGLE hike
+router.put('/hike/:id', function(req, res, next) {
+  var id = {"_id": req.params.id};
+  var update = req.body;
+  var options = {new: true};
+  Hike.findOneAndUpdate(id, update, options, function (err, hikes){
+    console.log(hikes);
+    res.json(hikes);
+  });
+});
 
 //delete SINGLE hike
-
-
+router.delete('/hike/:id', function(req, res, next) {
+  var id = {"_id": req.params.id};
+  Hike.findOneAndRemove(id, function (err, hikes){
+    console.log(hikes);
+    res.json({Message: "Hike successfully removed from database."});
+  });
+});
 
 // *** added to db to test ***//
 var hike1 = new Hike({
