@@ -1,12 +1,9 @@
 ## Full Stack CRUD Assessment - todo
 
-Week of 09/07.
-
 ***This repo contains my solution to the following assessment challenge:***
 
-
 ### Server-Side
-**DONE - start 2:45pm, end 3:38pm except dotenv**
+*DONE - start 2:45pm, end 3:38pm except dotenv*
 
 1. Create the project structure
 1. Choose a resource (superheros, cats, dogs, etc.)
