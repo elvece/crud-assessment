@@ -1,5 +1,4 @@
 // add scripts
-// start 9:23
 
 $(document).on('ready', function() {
   ('#message').hide();
