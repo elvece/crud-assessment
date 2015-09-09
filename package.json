@@ -1,6 +1,6 @@
 {
-  "name": "_example",
-  "version": "0.0.0",
+  "name": "crud-assessment",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node ./server/bin/www"
