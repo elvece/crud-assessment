@@ -10,6 +10,29 @@
     <h1>{{ title }}</h1>
     <p>Welcome to {{ title }}</p>
 
+    <br>
+
+    <form class="form-inline">
+      <div class="form-group">
+        <label>Name:</label>
+        <input type="text" id="hike-name" name="name" class="form-control" required>
+        <label>Location:</label>
+        <input type="text" id="hike-location" name="location" class="form-control" required>
+        <label>Difficulty:</label>
+        <input type="text" id="hike-difficulty" name="difficulty" class="form-control" required>
+        <label>Duration:</label>
+        <input type="text" id="hike-duration" name="duration" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-default">Save Hike</button>
+    </form>
+
+    <hr><br>
+
+    <h2>All Hikes:</h2>
+    <div id="all-hikes"></div>
+
+
+
   </div>
 
 {% endblock %}
