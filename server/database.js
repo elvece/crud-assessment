@@ -12,6 +12,6 @@ var Hike = new Schema(
 
 mongoose.model('hikes', Hike);
 
-mongoose.connect('mongodb://process.env.MONGO_URI');
-
-
+// setting the stage for more advanced uses of enviornment variables
+process.env.DB_HOST = 'mongodb://localhost/01-crud-assessment';
+mongoose.connect(process.env.DB_HOST);

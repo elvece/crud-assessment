@@ -1,7 +1,8 @@
 //mongoose config//
 require('./database');
 //env config//
-require('dotenv').load();
+// require('dotenv').load();
+
 // *** main dependencies *** //
 var express = require('express');
 var path = require('path');
@@ -10,7 +11,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var swig = require('swig');
-
 
 // *** routes *** //
 var routes = require('./routes/index.js');

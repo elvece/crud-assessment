@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 //get ALL hikes
 router.get('/hikes', function(req, res, next) {
   Hike.find(function (err, hikes){
-    console.log(hikes);
+    // console.log(hikes);
     res.json(hikes);
   });
 });
@@ -19,7 +19,7 @@ router.get('/hikes', function(req, res, next) {
 router.get('/hike/:id', function(req, res, next) {
   var id = {"_id": req.params.id};
   Hike.findOne(id, function (err, hikes){
-    console.log(hikes);
+    // console.log(hikes);
     res.json(hikes);
   });
 });
@@ -28,8 +28,8 @@ router.get('/hike/:id', function(req, res, next) {
 router.post('/hikes', function(req, res, next) {
   var newHike = new Hike(req.body);
   newHike.save(function (err, hike){
-    console.log(hike);
-    res.json({Message: "Hike was saved to database successfully!"});
+    // console.log(hike);
+    res.json({Message: "Hike was saved successfully!"});
   });
 });
 
@@ -39,7 +39,7 @@ router.put('/hike/:id', function(req, res, next) {
   var update = req.body;
   var options = {new: true};
   Hike.findOneAndUpdate(id, update, options, function (err, hikes){
-    console.log(hikes);
+    // console.log(hikes);
     res.json(hikes);
   });
 });
@@ -48,7 +48,7 @@ router.put('/hike/:id', function(req, res, next) {
 router.delete('/hike/:id', function(req, res, next) {
   var id = {"_id": req.params.id};
   Hike.findOneAndRemove(id, function (err, hikes){
-    console.log(hikes);
+    // console.log(hikes);
     res.json({Message: "Hike successfully removed from database."});
   });
 });
