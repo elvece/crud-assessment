@@ -7,6 +7,7 @@
   <div class="container">
 
     <h1>{{ title }}</h1>
+    <p> Add hikes to {{ title }} using the following form:</p>
 
     <br>
 
@@ -45,7 +46,7 @@
       </div>
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-default">Save</button>
+          <button type="submit" class="btn btn-success">Save</button>
         </div>
       </div>
     </form>
@@ -59,7 +60,7 @@
     <div id="hike-table">
       <h2>All Hikes:</h2>
         <div>
-          <table class="table table-hover">
+          <table class="table table-hover table-responsive">
             <thead>
               <tr>
                 <th>Name</th>
@@ -87,8 +88,8 @@
             <p>Are you sure you want to delete this hike?</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-            <button type="button" data-dismiss="modal" class="btn btn-primary yes-delete">Yes</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+            <button type="button" data-dismiss="modal" class="btn btn-danger yes-delete">Yes</button>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->

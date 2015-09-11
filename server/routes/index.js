@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var Hike = mongoose.model('hikes');
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'My Hike Database' });
+  res.render('index', { title: 'Lucy&#39;s Hike Database' });
 });
 
 //get ALL hikes

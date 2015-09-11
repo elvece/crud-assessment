@@ -12,9 +12,9 @@ var Hike = new Schema(
 
 mongoose.model('hikes', Hike);
 
-// setting the stage for more advanced uses of enviornment variables
-process.env.DB_HOST = 'mongodb://localhost/01-crud-assessment';
-mongoose.connect(process.env.DB_HOST);
+// // setting the stage for more advanced uses of enviornment variables
+// process.env.DB_HOST = 'mongodb://localhost/01-crud-assessment';
+// mongoose.connect(process.env.DB_HOST);
 
-//
-// mongoose.connect(process.env.MONGOLAB_URI || "mongodb://01-crud-assessment");
+//for heroku
+mongoose.connect(process.env.MONGOLAB_URI || "mongodb://01-crud-assessment");
