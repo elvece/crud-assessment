@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var Hike = mongoose.model('hikes');
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'See Some Hikes' });
+  res.render('index', { title: 'My Hike Database' });
 });
 
 //get ALL hikes
@@ -40,7 +40,7 @@ router.put('/hike/:id', function(req, res, next) {
   var options = {new: true};
   Hike.findOneAndUpdate(id, update, options, function (err, hikes){
     // console.log(hikes);
-    res.json(hikes);
+    res.json({Message: "Hike was successfully updated!"});
   });
 });
 
@@ -49,7 +49,7 @@ router.delete('/hike/:id', function(req, res, next) {
   var id = {"_id": req.params.id};
   Hike.findOneAndRemove(id, function (err, hikes){
     // console.log(hikes);
-    res.json({Message: "Hike successfully removed from database."});
+    res.json({Message: "Hike successfully removed from the database."});
   });
 });
 

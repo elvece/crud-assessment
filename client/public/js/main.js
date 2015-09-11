@@ -1,7 +1,8 @@
 // add scripts
 
 $(document).on('ready', function() {
-  ('#message').hide();
+  renderHikes();
+  $('#message').hide();
 });
 
 //POST - add new hike to db from form submit
@@ -28,11 +29,65 @@ $('form').on('submit', function(e){
   });
 });
 
-//PUT - update hike in db
+//open edit modal and set field values
+$(document).on('click', '.edit-button', function(){
+  $.get('/hike/'+$(this).attr('id'), function(data){
+    $('#edit-hike-name').val(data.Name);
+    $('#edit-hike-location').val(data.Location);
+    $('#edit-hike-difficulty').val(data.Difficulty);
+    $('#edit-hike-duration').val(data.Duration);
+    $('.save-changes').attr('id', data._id);
+  });
+});
 
+//PUT - update hike in db
+$(document).on('click', '.save-changes', function(){
+  var $updatedName = $('#edit-hike-name').val();
+  var $updatedLocation = $('#edit-hike-location').val();
+  var $updatedDifficulty = $('#edit-hike-difficulty').val();
+  var $updatedDuration = $('#edit-hike-duration').val();
+
+  var payload = {
+    Name: $updatedName,
+    Location: $updatedLocation,
+    Difficulty: $updatedDifficulty,
+    Duration: $updatedDuration
+  };
+
+  $.ajax({
+    method: 'PUT',
+    url: 'hike/'+$(this).attr('id'),
+    data: payload
+  })
+  .done(function(data){
+    $('#message').html(data.Message);
+    $('#all-hikes').html("");
+    $('#message').show();
+    renderHikes();
+  });
+});
+
+//open delete modal and sets yes button attribute to hike id
+$(document).on('click', '.delete-button', function(){
+  $.get('/hike/'+$(this).attr('id'), function(data){
+    $('.yes-delete').attr('id', data._id);
+    console.log($('.yes-delete'));
+  });
+});
 
 //DELETE - delete hike from dom and db
-
+$(document).on('click', '.yes-delete', function(){
+  $.ajax({
+    method: 'DELETE',
+    url: '/hike/'+$(this).attr('id'),
+  })
+  .done(function(data){
+    $('#message').html(data.Message);
+    $('#all-hikes').html("");
+    $('#message').show();
+    renderHikes();
+  });
+});
 
 
 //helper function to render hikes
@@ -40,13 +95,20 @@ function renderHikes(){
   $.get('/hikes', function(data){
     for (var i = 0; i < data.length; i++) {
       $('#all-hikes').append(
-        '<ul>'+
-          '<li>'+data[i].Name+'</li>'+//later, male a href to click to edit single superhero, use id from db?
-          '<li>'+data[i].Location+'</li>'+
-          '<li>'+data[i].Difficulty+'</li>'+
-          '<li>'+data[i].Duration+'</li>'+
-        '</ul>'
+        '<tr>'+
+          '<td>'+data[i].Name+'</td>'+//later, male a href to ctdck to edit single superhero, use id from db?
+          '<td>'+data[i].Location+'</td>'+
+          '<td>'+data[i].Difficulty+'</td>'+
+          '<td>'+data[i].Duration+' hours roundtrip</td>'+
+          '<td><a class="btn btn-primary btn-xs edit-button" data-toggle="modal" data-target="#edit-modal" id="'+data[i]._id+'" role="button">Edit</a>'+
+          '&nbsp;<a class="btn btn-danger btn-xs delete-button" data-toggle="modal" data-target="#delete-modal" id="'+data[i]._id+'" role="button">Delete</a></td'+
+        '</tr>'
       );
     }
   });
 }
+
+
+
+
+
