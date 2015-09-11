@@ -29,7 +29,7 @@ router.post('/hikes', function(req, res, next) {
   var newHike = new Hike(req.body);
   newHike.save(function (err, hike){
     // console.log(hike);
-    res.json({Message: "Hike was saved successfully!"});
+    res.json({Message: "Hike was successfully saved!"});
   });
 });
 
