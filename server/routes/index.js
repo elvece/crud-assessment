@@ -4,14 +4,18 @@ var mongoose = require('mongoose');
 var Hike = mongoose.model('hikes');
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Lucy&#39;s Hike Database' });
+  res.render('index', { title: 'Lucy\'s Hike Database' });
 });
 
 //get ALL hikes
 router.get('/hikes', function(req, res, next) {
   Hike.find(function (err, hikes){
+    if (err){
+      throw err;
+    } else {
     // console.log(hikes);
     res.json(hikes);
+    }
   });
 });
 
@@ -19,8 +23,12 @@ router.get('/hikes', function(req, res, next) {
 router.get('/hike/:id', function(req, res, next) {
   var id = {"_id": req.params.id};
   Hike.findOne(id, function (err, hikes){
+    if (err){
+      throw err;
+    } else {
     // console.log(hikes);
     res.json(hikes);
+    }
   });
 });
 
@@ -28,8 +36,12 @@ router.get('/hike/:id', function(req, res, next) {
 router.post('/hikes', function(req, res, next) {
   var newHike = new Hike(req.body);
   newHike.save(function (err, hike){
+    if (err){
+      throw err;
+    } else {
     // console.log(hike);
     res.json({Message: "Hike was successfully saved!"});
+    }
   });
 });
 
@@ -39,8 +51,12 @@ router.put('/hike/:id', function(req, res, next) {
   var update = req.body;
   var options = {new: true};
   Hike.findOneAndUpdate(id, update, options, function (err, hikes){
+    if (err){
+      throw err;
+    } else {
     // console.log(hikes);
     res.json({Message: "Hike was successfully updated!"});
+    }
   });
 });
 
@@ -48,8 +64,12 @@ router.put('/hike/:id', function(req, res, next) {
 router.delete('/hike/:id', function(req, res, next) {
   var id = {"_id": req.params.id};
   Hike.findOneAndRemove(id, function (err, hikes){
+    if (err){
+      throw err;
+    } else {
     // console.log(hikes);
     res.json({Message: "Hike successfully removed from the database."});
+    }
   });
 });
 
